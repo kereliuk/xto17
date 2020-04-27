@@ -1,0 +1,45 @@
+# github.com/StackExchange/wmi v0.0.0-20190523213315-cbe66965904d
+github.com/StackExchange/wmi
+# github.com/go-ole/go-ole v1.2.4
+github.com/go-ole/go-ole
+github.com/go-ole/go-ole/oleutil
+# github.com/go-vgo/robotgo v0.0.0-20200414175640-c7ce55023a6e
+github.com/go-vgo/robotgo
+github.com/go-vgo/robotgo/clipboard
+# github.com/lxn/win v0.0.0-20191128105842-2da648fda5b4
+github.com/lxn/win
+# github.com/otiai10/gosseract v2.2.1+incompatible
+github.com/otiai10/gosseract
+# github.com/pkg/errors v0.9.1
+github.com/pkg/errors
+# github.com/rakyll/portmidi v0.0.0-20191102002215-74e95e8bc9b1
+github.com/rakyll/portmidi
+# github.com/robotn/gohook v0.0.0-20200411172114-146f7aeeb5e8
+github.com/robotn/gohook
+# github.com/robotn/xgb v0.0.0-20190912153532-2cb92d044934
+github.com/robotn/xgb
+github.com/robotn/xgb/shape
+github.com/robotn/xgb/xinerama
+github.com/robotn/xgb/xproto
+# github.com/robotn/xgbutil v0.0.0-20190912154524-c861d6f87770
+github.com/robotn/xgbutil
+github.com/robotn/xgbutil/ewmh
+github.com/robotn/xgbutil/xevent
+github.com/robotn/xgbutil/xprop
+# github.com/shirou/gopsutil v2.20.3+incompatible
+github.com/shirou/gopsutil/cpu
+github.com/shirou/gopsutil/internal/common
+github.com/shirou/gopsutil/mem
+github.com/shirou/gopsutil/net
+github.com/shirou/gopsutil/process
+# github.com/vcaesar/gops v0.0.0-20200414162221-c22fcf31d11e
+github.com/vcaesar/gops
+# github.com/vcaesar/imgo v0.0.0-20200405175324-e6a1d5a9a558
+github.com/vcaesar/imgo
+# github.com/vcaesar/tt v0.0.0-20200413173740-6220b2b5f8ff
+github.com/vcaesar/tt
+# golang.org/x/image v0.0.0-20200119044424-58c23975cae1
+golang.org/x/image/bmp
+# golang.org/x/sys v0.0.0-20200413165638-669c56c373c4
+golang.org/x/sys/unix
+golang.org/x/sys/windows
