@@ -3,7 +3,7 @@ module github.com/65535/xto17
 go 1.13
 
 require (
-	github.com/go-vgo/robotgo v0.0.0-20200414175640-c7ce55023a6e
+	github.com/go-vgo/robotgo v0.0.0-20200414175640-c7ce55023a6e // indirect
 	github.com/gomidi/midi v1.6.2 // indirect
 	github.com/pkg/errors v0.9.1
 	github.com/rakyll/portmidi v0.0.0-20191102002215-74e95e8bc9b1

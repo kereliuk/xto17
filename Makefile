@@ -9,11 +9,5 @@ define build
 		$(1)
 endef
 
-build-x0:
-	$(call build, ./cmd/x0)
-
-build-x1event:
-	$(call build, ./cmd/x1event)
-
 build-j0:
 	$(call build, ./cmd/j0)

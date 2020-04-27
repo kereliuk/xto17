@@ -218,14 +218,33 @@ func RunScript(launchNumber int64, out *portmidi.Stream) error {
 }
 
 func APC20Splash(out *portmidi.Stream) error {
-	// Down
+	// Down GREEN
 	for i := int64(0); i < 40; i++ {
 		midiInfo := apc20.IntToClipLaunchDown[i]
 		if err := out.WriteShort(midiInfo.Status, midiInfo.Data1, midiInfo.Data2); err != nil {
 			return errors.Wrap(err, "could not write short to midi device")
 		}
-		time.Sleep(30 * time.Millisecond)
+		time.Sleep(20 * time.Millisecond)
 	}
+
+	// Down ORANGE
+	for i := int64(0); i < 40; i++ {
+		midiInfo := apc20.IntToClipLaunchDown[i]
+		if err := out.WriteShort(midiInfo.Status, midiInfo.Data1, 5); err != nil {
+			return errors.Wrap(err, "could not write short to midi device")
+		}
+		time.Sleep(20 * time.Millisecond)
+	}
+
+	// Down RED
+	for i := int64(0); i < 40; i++ {
+		midiInfo := apc20.IntToClipLaunchDown[i]
+		if err := out.WriteShort(midiInfo.Status, midiInfo.Data1, 3); err != nil {
+			return errors.Wrap(err, "could not write short to midi device")
+		}
+		time.Sleep(20 * time.Millisecond)
+	}
+
 	// Up
 	for i := int64(0); i < 40; i++ {
 		midiInfo := apc20.IntToClipLaunchUp[i]
