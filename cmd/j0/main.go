@@ -8,6 +8,7 @@ import (
 	"io"
 	"io/ioutil"
 	"log"
+	"math/rand"
 	"os"
 	"os/exec"
 	"path"
@@ -228,7 +229,7 @@ func APC20Splash(out *portmidi.Stream) error {
 	}
 
 	// Down ORANGE
-	for i := int64(0); i < 40; i++ {
+	for i := int64(39); i > -1; i-- {
 		midiInfo := apc20.IntToClipLaunchDown[i]
 		if err := out.WriteShort(midiInfo.Status, midiInfo.Data1, 5); err != nil {
 			return errors.Wrap(err, "could not write short to midi device")
@@ -237,22 +238,23 @@ func APC20Splash(out *portmidi.Stream) error {
 	}
 
 	// Down RED
-	for i := int64(0); i < 40; i++ {
-		midiInfo := apc20.IntToClipLaunchDown[i]
+	for _, i := range rand.Perm(40) {
+		midiInfo := apc20.IntToClipLaunchDown[int64(i)]
 		if err := out.WriteShort(midiInfo.Status, midiInfo.Data1, 3); err != nil {
 			return errors.Wrap(err, "could not write short to midi device")
 		}
-		time.Sleep(20 * time.Millisecond)
+		time.Sleep(10 * time.Millisecond)
 	}
 
 	// Up
-	for i := int64(0); i < 40; i++ {
-		midiInfo := apc20.IntToClipLaunchUp[i]
+	for _, i := range rand.Perm(40) {
+		midiInfo := apc20.IntToClipLaunchUp[int64(i)]
 		if err := out.WriteShort(midiInfo.Status, midiInfo.Data1, midiInfo.Data2); err != nil {
 			return errors.Wrap(err, "could not write short to midi device")
 		}
-		time.Sleep(30 * time.Millisecond)
+		time.Sleep(10 * time.Millisecond)
 	}
+	time.Sleep(100 * time.Millisecond)
 	return nil
 }
 
@@ -295,18 +297,16 @@ func main() {
 			Data2:  event.Data2,
 		}
 
-		// fmt.Printf("This is the event midi msg: %v\n", eventMidiMsg)
-		for i, _ := range clipToScript {
-			// fmt.Printf("This is the msg: %v, this is the script: %v\n", msg, script)
-			if j, ok := apc20.ClipLaunchUpToInt[eventMidiMsg]; ok {
-				if i == j {
-					err = RunScript(i, midiOut)
-					if err != nil {
-						log.Fatalf("unable to run script: %v", err)
-						return
-					}
+		for i := range clipToScript {
+			if _, ok := apc20.ClipLaunchUpToInt[eventMidiMsg]; !ok {
+				continue
+			}
+			if i == apc20.ClipLaunchUpToInt[eventMidiMsg] {
+				err = RunScript(i, midiOut)
+				if err != nil {
+					log.Fatalf("unable to run script: %v", err)
+					return
 				}
-
 			}
 		}
 	}
