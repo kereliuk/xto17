@@ -2,8 +2,8 @@ package apc20
 
 import "github.com/65535/xto17/lib/midi"
 
-var ClipLaunchDownToInt = map[midi.MidiMessage]int64{
-	// Starting from the top left, going horizontal to the right and then down at the end of the line.
+// MidiMessageDownToInt is a coversion from a turn light on MidiMessage, and the associated integer index of the APC20 clip launch squares.
+var MidiMessageDownToInt = map[midi.MidiMessage]int64{
 	midi.MidiMessage{
 		Status: 144,
 		Data1:  53,
@@ -206,7 +206,8 @@ var ClipLaunchDownToInt = map[midi.MidiMessage]int64{
 	}: 39,
 }
 
-var ClipLaunchUpToInt = map[midi.MidiMessage]int64{
+// MidiMessageUpToInt is a coversion from a turn light on MidiMessage, and the associated integer index of the APC20 clip launch squares.
+var MidiMessageUpToInt = map[midi.MidiMessage]int64{
 	// Starting from the top left, going horizontal to the right and then down at the end of the line.
 	midi.MidiMessage{
 		Status: 128,
@@ -410,8 +411,8 @@ var ClipLaunchUpToInt = map[midi.MidiMessage]int64{
 	}: 39,
 }
 
-var IntToClipLaunchDown = map[int64]midi.MidiMessage{
-	// Starting from the top left, going horizontal to the right and then down at the end of the line.
+// IntToMidiMessageDown is a coversion from a turn light off MidiMessage, and the associated integer index of the APC20 clip launch squares.
+var IntToMidiMessageDown = map[int64]midi.MidiMessage{
 	0: midi.MidiMessage{
 		Status: 144,
 		Data1:  53,
@@ -614,8 +615,8 @@ var IntToClipLaunchDown = map[int64]midi.MidiMessage{
 	},
 }
 
-var IntToClipLaunchUp = map[int64]midi.MidiMessage{
-	// Starting from the top left, going horizontal to the right and then down at the end of the line.
+// IntToMidiMessageUp is a coversion from a turn light on MidiMessage, and the associated integer index of the APC20 clip launch squares.
+var IntToMidiMessageUp = map[int64]midi.MidiMessage{
 	0: midi.MidiMessage{
 		Status: 128,
 		Data1:  53,
